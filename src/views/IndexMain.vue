@@ -4,7 +4,7 @@
 
 <template>
   <div class="index-main">
-
+    
   </div>
 </template>
 

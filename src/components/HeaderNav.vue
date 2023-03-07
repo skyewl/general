@@ -9,6 +9,7 @@ defineProps({
 
 <template>
   <div class="header">
+    <img alt="logo" class="logo" src="../assets/img/logo.svg" width="26" height="30" />
     <h1 class="green">{{ msg }}</h1>
     
   </div>
