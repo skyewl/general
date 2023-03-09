@@ -11,7 +11,9 @@
 <style scoped>
 .index-main{
   width: 100%;
-  height: 200px;
-  background: #f00;
+  min-height: 88vh;
+  background-image: url(../assets/img/r229.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 </style>
