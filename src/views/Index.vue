@@ -13,7 +13,7 @@
   width: 100%;
   min-height: 88vh;
   background-image: url(../assets/img/r229.png);
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
 }
 </style>
