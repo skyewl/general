@@ -1,4 +1,5 @@
 <script setup>
+// import Web3 from 'web3'
 import HeaderNav from './components/HeaderNav.vue'
 import FooterLink from './components/FooterLink.vue'
 </script>
@@ -6,7 +7,7 @@ import FooterLink from './components/FooterLink.vue'
 <template>
   
   <header>
-    <HeaderNav msg="header"></HeaderNav>
+    <HeaderNav></HeaderNav>
   </header>
 
   <main>

@@ -1,8 +1,9 @@
-import {createRouter, createWebHistory} from 'vue-router'
-import routes from './router.js'    // 导入 router 目录下的 router.js
+import {createRouter, createWebHistory, createWebHashHistory} from 'vue-router'
+import routes from './router.js'
 
 const router = createRouter({
-	history: createWebHistory(),
+	// history: createWebHistory(),
+	history: createWebHashHistory(),
 	routes: routes
 })
 export default router

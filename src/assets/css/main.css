@@ -3,6 +3,12 @@
 #app {
   font-size: 14px;
 }
+.tit2{
+  font-family: 'Lexend';
+  font-size: 36px;
+  font-weight: 500;
+  color: #fff;
+}
 
 @media (hover: hover) {
   /* a:hover {

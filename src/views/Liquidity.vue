@@ -4,44 +4,47 @@
     <div class="def-container trading-con">
       <div class="total">
         <div class="inpool">
-          <h6 class="volume">Total volume(In pool)</h6>
-          <h3 class="money">$212,406.898</h3>
-          <p class="des">After the withdrawal of your rewards, you will lose the transaction mining weight</p>
+          <h6 class="volume">TVL(Liquidity pool)</h6>
+          <h3 class="money">$95,368.28</h3>
+          <p class="des">GER rewards can be withdrawn from liquidity mining pool anytime. After your withdrawal, mining weight remains unchanged</p>
+        </div>   
+      </div>
+      <div class="pool-tit">
+        <div class="tab">
+          <span class="cur">Processing</span>
+          <span>Closed</span>
         </div>
-        <div class="with">
-          <h6>Your withdrawable rewards</h6>
-          <b>1,708,895.2 GER</b>
-          <div class="btn">
-            Withdraw All
-            <img src="../assets/img/Union2.svg" width="7" height="11" alt="icon" style="margin-left:10px">
-          </div>
+        <div class="select">
+          <span class="selected">
+            <img src="../assets/img/Frame5.svg" width="20" height="20" alt="icon">
+            My Staked
+          </span>
+          <span>
+            <img src="../assets/img/Ellipse30.svg" width="20" height="20" alt="icon">
+            Double Pool
+          </span>
         </div>
       </div>
-      <h2 class="pool-tit">Trading Pool</h2>
       <div class="pool-box">
         <div class="tit">
           <span class="td td1">Pair</span>
-          <span class="td td2">Rewarded</span>
+          <span class="td td2">TVL</span>
           <span class="td td3">Reward per block</span>
-          <span class="td td4">Total volume</span>
-          <span class="td td5">Current</span>
-          <span class="td td6">APY</span>
-          <span class="td td7">My Transaction</span>
-          <span class="td td8">Unclaimed rewards</span>
+          <span class="td td4">Avg weekly rewards</span>
+          <span class="td td5">APY</span>
+          <span class="td td6">My unclaimed rewards</span>
         </div>
         <div class="row" v-for="item in poolList" :key="item">
           <span class="td td1 cur">
             <img src="../assets/img/USDT.svg" width="30" height="30" alt="icon">
             <img src="../assets/img/BTC.svg" width="30" height="30" alt="icon" style="margin-left:-8px">
-            <b class="cur-t">USDT/BTCK</b>
+            <b class="cur-t" @click="gotoStake">USDT/BTCK</b>
           </span>
-          <span class="td td2">3,775,341 GER</span>
-          <span class="td td3">0.1 GER</span>
-          <span class="td td4">$192,293,909</span>
-          <span class="td td5">$22,083,625</span>
-          <span class="td td6 per">0.53%</span>
-          <span class="td td7">$150.56</span>
-          <span class="td td8">50 GER</span>
+          <span class="td td2">$192,293</span>
+          <span class="td td3">12 GER</span>
+          <span class="td td4">3,775,341 GER</span>
+          <span class="td td5 per">325.02%</span>
+          <span class="td td6">50 GER</span>
         </div>
       </div>
     </div>
@@ -50,7 +53,7 @@
 
 <script>
 export default {
-  name: 'Trade',
+  name: 'Pool',
   props: {
     
   },
@@ -69,10 +72,15 @@ export default {
     }
   },
   mounted() {
-    // this.networkChanged(this.changeFunc)
     
   },
-  methods: {}
+  methods: {
+    gotoStake(){
+      this.$router.push({
+        path: '/stake'
+      })
+    }
+  }
 }
 </script>
 
@@ -92,7 +100,7 @@ export default {
   align-items: center;
   padding-top: 46px
   .inpool{
-    width: 750px;
+    width: 100%;
     height: 240px;
     background: linear-gradient(90deg, rgba(163, 163, 163, 0.125) 1.27%, rgba(0, 0, 0, 0) 99.09%);
     border: 1px solid rgba(163, 163, 163, 0.12);
@@ -119,52 +127,39 @@ export default {
       margin-top: 68px
     }
   }
-  .with{
-    width: 360px;
-    height: 360px;
-    margin-left: 15px
-    background-image: url(../assets/img/Polygon6.png);
-    background-position: center
-    background-repeat: no-repeat;
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-    h6{
-      font-size: 14px;
-      line-height: 17px;
-      color: #FFA318;
-    }
-    b{
-      font-family: 'Lexend';
-      font-weight: 500;
-      font-size: 30px;
-      line-height: 38px;
-      color: #FFFFFF;
-      margin-top: 15px
-    }
-    .btn{
-      width: 170px;
-      height: 46px;
-      background: linear-gradient(90deg, #FFBE5E 6.16%, #FFA318 91.18%);
-      border-radius: 100px;
-      display: flex
-      justify-content: center
-      align-items: center
-      font-weight: 700;
-      font-size: 16px;
-      color: #19191B;
-      margin-top: 25px
-      cursor pointer
-    }
-  }
 }
 .pool-tit{
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  color: #FFFFFF;
-  padding-top: 15px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding-top: 55px
+  .tab{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    color: #A3A3A3;
+    display: flex
+    span{
+      padding: 8px 28px
+    }
+    .cur{
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(163, 163, 163, 0.12);
+      border-radius: 100px;
+      color: #FFFFFF;
+    }
+  }
+  .select{
+    display: flex
+    span{
+      display: flex
+      align-items: center
+      padding-left: 30px
+      img{
+        margin-right: 8px
+      }
+    }
+  }
 }
 .pool-box{
   width: 100%
@@ -199,32 +194,29 @@ export default {
     width: 206px
   }
   .td2{
-    width: 136px
+    width: 140px
   }
   .td3{
-    width: 136px
+    width: 176px
   }
   .td4{
-    width: 136px
+    width: 206px
   }
   .td5{
-    width: 126px
-  }
-  .td6{
-    width: 86px
-  }
-  .td7{
-    width: 124px
+    width: 152px
   }
   .cur{
     display: flex
     align-items: center
     .cur-t{
       padding-left: 8px
+      text-decoration: underline;
+      color: #FFA318;
+      cursor: pointer
     }
   }
   .per{
-    color: rgba(163, 163, 163, 0.6);
+    color: #29B478;
   }
 }
 </style>
